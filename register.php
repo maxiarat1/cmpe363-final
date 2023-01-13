@@ -23,16 +23,16 @@ div {text-align: center;}
 }
 if ($name != "" && $password != "" && $passwordrepeat != ""){
   if ($password === $passwordrepeat){
-    $query = mysqli_query($conn, "SELECT * FROM user WHERE name='{$name}'");
-    if (mysqli_num_rows($query) == 0){
+    $query = sqlsrv_query($conn, "SELECT * FROM user WHERE name='{$name}'");
+    if (sqlsrv_num_rows($query) == 0){
         // create and format some variables for the database
         $id = '';
         $name = $_POST['name']; 
         $mail = $_POST['mail'];
         $password = $_POST['password'];
-        mysqli_query($conn, "INSERT INTO user VALUES ('{$id}', '{$name}', '{$mail}', '{$password}')");
+        sqlsrv_query($conn, "INSERT INTO user VALUES ('{$id}', '{$name}', '{$mail}', '{$password}')");
         $query = mysqli_query($conn, "SELECT * FROM user WHERE name='{$name}'");
-        if (mysqli_num_rows($query) == 1){
+        if (sqlsrv_num_rows($query) == 1){
           $error_msg = 'The username <i>'.$name.'</i> is registered successfully!';
         }
         else{

@@ -56,7 +56,7 @@ include "connect.php"
     
     
     <!--Example qeury 
-        mysqli_query($conn,"INSERT INTO Users (Personid, Username, Userpassword) 
+        sqlsrv_query($conn,"INSERT INTO Users (Personid, Username, Userpassword) 
         VALUES ('$_POST[Username]','$_POST[Userpassword]')");
     
         '$_POST[Personid]' is incremented automatically

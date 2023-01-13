@@ -54,11 +54,11 @@ session_start();
 
         $sql = "SELECT * FROM user WHERE mail='$email'  ";
 
-        $result = mysqli_query($conn, $sql);
+        $result = sqlsrv_query($conn, $sql);
 
-        if (mysqli_num_rows($result) === 1) {
+        if (sqlsrv_num_rows($result) === 1) {
 
-            $row = mysqli_fetch_assoc($result);
+            $row = sqlrv_fetch_assoc($result);
 
             if ($row['mail'] === $email && $row['password'] === $pass) {
 
